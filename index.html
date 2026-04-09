@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datanautics Consulting | Business Intelligence & Data Strategy South Africa</title>
+  <meta name="description" content="Datanautics is a South African data and business consulting firm specialising in Business Intelligence, analytics transformation, data strategy, and operational optimisation. Navigate your data. Power your decisions." />
+  <meta name="keywords" content="data strategy South Africa, business intelligence consulting, analytics transformation, data engineering, operational optimisation, BI dashboards" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HOME-SPECIFIC ── */
+    .hero {
+      background: var(--navy);
+      min-height: 92vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 6rem 0 5rem;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle at center, rgba(0,194,168,0.14) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .hero-content { color: var(--white); }
+    .hero-eyebrow { display: inline-block; background: rgba(0,194,168,0.12); border: 1px solid rgba(0,194,168,0.3); color: var(--teal); font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .hero h1 { margin-bottom: 1.25rem; }
+    .hero h1 em { color: var(--teal); font-style: normal; }
+    .hero .lead { color: rgba(255,255,255,0.7); margin-bottom: 2.25rem; max-width: 520px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 2rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat-val { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--teal); }
+    .hero-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 0.15rem; }
+    .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+    .hero-chart-wrap { position: relative; width: 100%; max-width: 460px; }
+    .hero-chart-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius); padding: 1.75rem; backdrop-filter: blur(8px);
+      animation: float 5s ease-in-out infinite;
+    }
+    .chart-label { font-family: var(--font-display); font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+    .chart-bars { display: flex; align-items: flex-end; gap: 6px; height: 100px; }
+    .bar { flex: 1; background: rgba(0,194,168,0.25); border-radius: 3px 3px 0 0; position: relative; }
+    .bar::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; border-radius: 3px 3px 0 0; background: var(--teal); animation: growBar 1.5s ease forwards; transform-origin: bottom; }
+    @keyframes growBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .b1::after { height: 45%; animation-delay: 0.2s; }
+    .b2::after { height: 65%; animation-delay: 0.3s; }
+    .b3::after { height: 55%; animation-delay: 0.4s; }
+    .b4::after { height: 80%; animation-delay: 0.5s; }
+    .b5::after { height: 70%; animation-delay: 0.6s; }
+    .b6::after { height: 92%; animation-delay: 0.7s; }
+    .b7::after { height: 78%; animation-delay: 0.8s; }
+    .b8::after { height: 88%; animation-delay: 0.9s; }
+    .hero-float-badge {
+      position: absolute; top: -20px; right: -20px;
+      background: var(--navy-mid); border: 1px solid rgba(0,194,168,0.3);
+      border-radius: var(--radius); padding: 0.9rem 1.25rem;
+      font-family: var(--font-display); font-size: 0.8rem; color: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-float-badge strong { display: block; color: var(--teal); font-size: 1.1rem; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip { background: var(--navy-mid); padding: 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .trust-strip-inner { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; justify-content: space-between; }
+    .trust-label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); white-space: nowrap; }
+    .logo-placeholders { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
+    .logo-ph { width: 100px; height: 28px; background: rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: rgba(255,255,255,0.25); font-family: var(--font-display); letter-spacing: 0.05em; }
+    .trust-bullets { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .trust-bullet { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+    .trust-bullet svg { color: var(--teal); flex-shrink: 0; }
+
+    /* ── SERVICES GRID ── */
+    .service-card { cursor: default; }
+    .service-card h4 { margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.9rem; color: var(--grey-600); }
+    .service-num { font-family: var(--font-display); font-size: 0.7rem; font-weight: 800; color: var(--teal); opacity: 0.5; margin-bottom: 0.5rem; }
+
+    /* ── WHY US ── */
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .why-item { padding: 2rem; background: var(--white); border: 1px solid var(--grey-200); border-radius: var(--radius); border-left: 4px solid var(--teal); }
+    .why-item h4 { margin-bottom: 0.6rem; }
+    .why-item p { font-size: 0.9rem; color: var(--grey-600); }
+    @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; } }
+
+    /* ── INDUSTRIES ── */
+    .industry-chip {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85); font-family: var(--font-display); font-size: 0.85rem; font-weight: 500;
+      padding: 0.65rem 1.25rem; border-radius: 100px;
+      transition: all 0.2s;
+    }
+    .industry-chip:hover { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+    .industries-chips { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 2.5rem; }
+
+    /* ── PROCESS ── */
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, var(--teal) 0%, rgba(0,194,168,0.2) 100%);
+    }
+    .process-step { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .step-num { width: 64px; height: 64px; background: var(--navy); border: 2px solid var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--teal); margin: 0 auto 1.5rem; }
+    .process-step h4 { margin-bottom: 0.5rem; }
+    .process-step p { font-size: 0.88rem; color: var(--grey-600); }
+    @media (max-width: 760px) { .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; } .process-steps::before { display: none; } }
+    @media (max-width: 480px) { .process-steps { grid-template-columns: 1fr; } }
+
+    /* ── OUTCOMES ── */
+    .outcome-card {
+      background: var(--navy); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius); padding: 1.75rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .outcome-card svg { color: var(--teal); }
+    .outcome-card h4 { color: var(--white); font-size: 1rem; }
+    .outcome-card p { color: rgba(255,255,255,0.55); font-size: 0.88rem; }
+
+    /* ── FINAL CTA ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, #006e5f 100%);
+      padding: 5rem 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-banner::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 24px 24px; }
+    .cta-banner h2 { color: var(--white); margin-bottom: 1rem; }
+    .cta-banner p { color: rgba(255,255,255,0.8); margin-bottom: 2.25rem; font-size: 1.05rem; }
+    .cta-banner .btn-outline-light { border-color: rgba(255,255,255,0.6); }
+    .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .cta-contact-row { display: flex; gap: 2.5rem; justify-content: center; margin-top: 2.25rem; flex-wrap: wrap; }
+    .cta-contact-item { display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .cta-contact-item svg { color: rgba(255,255,255,0.6); }
+    .cta-contact-item a { color: inherit; font-weight: 500; }
+
+    /* hero responsive */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="dot-grid"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-eyebrow fade-up">South African Data &amp; Business Consulting</span>
+          <h1 class="fade-up delay-1">Navigating <em>Data.</em><br>Powering <em>Decisions.</em></h1>
+          <p class="lead fade-up delay-2">We help organisations across South Africa and beyond unlock the full value of their data — blending technical expertise with strategic business thinking to drive meaningful, measurable outcomes.</p>
+          <div class="hero-actions fade-up delay-3">
+            <a href="contact.html" class="btn btn-primary">Book a Discovery Call →</a>
+            <a href="contact.html#consultation" class="btn btn-outline-light">Request a Consultation</a>
+          </div>
+          <div class="hero-stats fade-up delay-4">
+            <div>
+              <div class="hero-stat-val">7+</div>
+              <div class="hero-stat-label">Core service areas</div>
+            </div>
+            <div>
+              <div class="hero-stat-val">6</div>
+              <div class="hero-stat-label">Industries served</div>
+            </div>
+            <div>
+              <div class="hero-stat-val">SA</div>
+              <div class="hero-stat-label">Based &amp; proudly local</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-chart-wrap">
+            <div class="hero-chart-card">
+              <div class="chart-label">Decision Performance Index</div>
+              <div class="chart-bars">
+                <div class="bar b1"></div>
+                <div class="bar b2"></div>
+                <div class="bar b3"></div>
+                <div class="bar b4"></div>
+                <div class="bar b5"></div>
+                <div class="bar b6"></div>
+                <div class="bar b7"></div>
+                <div class="bar b8"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:0.75rem">
+                <span style="font-size:0.72rem;color:rgba(255,255,255,0.35);font-family:var(--font-display)">Before</span>
+                <span style="font-size:0.72rem;color:var(--teal);font-family:var(--font-display);font-weight:700">↑ With Datanautics</span>
+              </div>
+            </div>
+            <div class="hero-float-badge">
+              <strong>↑ Faster Reporting</strong>
+              Data-driven clarity
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRUST STRIP ══ -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner">
+        <div>
+          <div class="trust-label">Trusted by organisations in</div>
+          <div class="logo-placeholders" style="margin-top:0.75rem">
+            <div class="logo-ph">Client Logo</div>
+            <div class="logo-ph">Client Logo</div>
+            <div class="logo-ph">Client Logo</div>
+            <div class="logo-ph">Client Logo</div>
+            <div class="logo-ph">Client Logo</div>
+          </div>
+          <div style="font-size:0.68rem;color:rgba(255,255,255,0.2);margin-top:0.5rem;font-style:italic">* Client logo placeholders — to be updated</div>
+        </div>
+        <div class="trust-bullets">
+          <div class="trust-bullet">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Strategy meets execution
+          </div>
+          <div class="trust-bullet">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Practical, modern solutions
+          </div>
+          <div class="trust-bullet">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            South African context &amp; expertise
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WHAT WE DO ══ -->
+  <section class="bg-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">What We Do</span>
+        <h2>Services Built for <span class="text-teal">Data-Driven Organisations</span></h2>
+        <p class="lead" style="margin-top:1rem">From foundational data strategy to advanced analytics and operational transformation — we cover the full spectrum of what modern organisations need to compete on data.</p>
+      </div>
+      <div class="grid-3" style="gap:1.25rem">
+        <!-- 1 -->
+        <a href="services.html#data-strategy" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">01</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+          </div>
+          <h4>Data Strategy &amp; Governance</h4>
+          <p>Build the foundations your organisation needs — clear policies, ownership, and a roadmap to treat data as a strategic asset.</p>
+        </a>
+        <!-- 2 -->
+        <a href="services.html#warehousing" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">02</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h4>Data Warehousing &amp; Engineering</h4>
+          <p>Design and deploy scalable data infrastructure — pipelines, warehouses, and integrations that make your data accessible and reliable.</p>
+        </a>
+        <!-- 3 -->
+        <a href="services.html#ai-analytics" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">03</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <h4>AI &amp; Advanced Analytics</h4>
+          <p>Move beyond standard reporting — leverage machine learning and predictive analytics to uncover trends and inform proactive decisions.</p>
+        </a>
+        <!-- 4 -->
+        <a href="services.html#bi-reporting" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">04</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h4>BI Reporting &amp; Dashboards</h4>
+          <p>Turn complex data into clear, actionable dashboards that give leadership and teams the visibility to act with confidence.</p>
+        </a>
+        <!-- 5 -->
+        <a href="services.html#project-mgmt" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">05</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h4>Project Management</h4>
+          <p>Structured delivery of complex data and technology initiatives — on scope, on time, with clear stakeholder communication throughout.</p>
+        </a>
+        <!-- 6 -->
+        <a href="services.html#business-consulting" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">06</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Business Consulting &amp; Advisory</h4>
+          <p>Strategic guidance to strengthen business models, improve performance, and align operations with long-term growth objectives.</p>
+        </a>
+        <!-- 7 -->
+        <a href="services.html#business-analysis" class="card service-card" style="text-decoration:none;color:inherit">
+          <div class="service-num">07</div>
+          <div class="card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Business Analysis &amp; Process Optimisation</h4>
+          <p>Identify inefficiencies, map processes, and deliver improvements that reduce cost, improve speed, and scale with your business.</p>
+        </a>
+        <!-- CTA card -->
+        <a href="services.html" class="card service-card" style="text-decoration:none;background:var(--navy);border-color:transparent;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+          <span class="label" style="color:rgba(255,255,255,0.4)">Explore All</span>
+          <h4 style="color:var(--white);margin-bottom:1rem">See the full scope of what we deliver →</h4>
+          <span class="btn btn-primary btn-sm">View All Services</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHY DATANAUTICS ══ -->
+  <section>
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:5rem;align-items:start">
+        <div>
+          <span class="label">Why Datanautics</span>
+          <h2>Built Different.<br>Delivering <span class="text-teal">Real Results.</span></h2>
+          <p class="lead" style="margin-top:1rem">We're not a generic IT shop. We're a focused consulting firm that combines deep technical skills with practical business strategy — built for the South African market.</p>
+          <a href="about.html" class="btn btn-outline-dark" style="margin-top:1.75rem">Learn About Us</a>
+        </div>
+        <div class="why-grid">
+          <div class="why-item">
+            <h4>Strategy Meets Execution</h4>
+            <p>We don't just advise — we roll up our sleeves and deliver. Our consultants work end-to-end from strategic design through hands-on implementation.</p>
+          </div>
+          <div class="why-item">
+            <h4>Practical, Modern Solutions</h4>
+            <p>We stay current with the tools and methods that matter, while keeping recommendations grounded in what's realistic and achievable for your organisation.</p>
+          </div>
+          <div class="why-item">
+            <h4>Operational Optimisation Focus</h4>
+            <p>Beyond data and analytics, we look at how your business actually runs — identifying inefficiencies and opportunities to perform better at every level.</p>
+          </div>
+          <div class="why-item">
+            <h4>Clear Stakeholder Alignment</h4>
+            <p>We translate technical complexity into language that resonates with leadership — ensuring buy-in, clarity, and confidence across your organisation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ INDUSTRIES ══ -->
+  <section class="bg-navy-mid" style="position:relative;overflow:hidden">
+    <div class="dot-grid"></div>
+    <div class="container" style="position:relative;z-index:1;text-align:center">
+      <span class="label">Industries</span>
+      <h2 style="color:var(--white)">We Know Your <span class="text-teal">Sector</span></h2>
+      <p style="color:rgba(255,255,255,0.65);max-width:580px;margin:1rem auto 0">From healthcare to financial services, our solutions are tailored to the specific challenges and regulatory environment of your industry.</p>
+      <div class="industries-chips">
+        <a href="industries.html#healthcare" class="industry-chip">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Healthcare
+        </a>
+        <a href="industries.html#financial" class="industry-chip">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Financial Services
+        </a>
+        <a href="industries.html#retail" class="industry-chip">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Retail
+        </a>
+        <a href="industries.html#hospitality" class="industry-chip">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Hospitality
+        </a>
+        <a href="industries.html#insurance" class="industry-chip">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Insurance
+        </a>
+        <a href="industries.html#public-sector" class="industry-chip">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+          Public Sector
+        </a>
+      </div>
+      <a href="industries.html" class="btn btn-outline-light" style="margin-top:2.5rem">Explore by Industry →</a>
+    </div>
+  </section>
+
+  <!-- ══ HOW WE WORK ══ -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Our Process</span>
+        <h2>How We Work</h2>
+        <p class="lead" style="margin-top:1rem">A structured, collaborative approach that ensures every engagement delivers real value — from initial discovery through to lasting capability.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h4>Discover</h4>
+          <p>We listen first. Deep-dive into your business context, current capabilities, pain points, and strategic goals.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h4>Design</h4>
+          <p>Co-create a tailored solution blueprint — clear scope, agreed outcomes, and a pragmatic delivery roadmap.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h4>Deliver</h4>
+          <p>Execute with discipline — transparent progress, stakeholder alignment, and quality at every milestone.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <h4>Enable</h4>
+          <p>Equip your team to sustain and grow the results — knowledge transfer, documentation, and ongoing support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FEATURED OUTCOMES ══ -->
+  <section class="bg-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Featured Outcomes</span>
+        <h2>What Good Looks Like</h2>
+        <p class="lead" style="margin-top:1rem">These are the kinds of outcomes our clients see when data strategy, engineering, and operational thinking come together.</p>
+      </div>
+      <div class="grid-3" style="gap:1.25rem">
+        <div class="outcome-card">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <h4>Faster Reporting Cycles</h4>
+          <p>Automated data pipelines and well-structured warehouses reduce manual reporting effort, delivering insights to decision-makers significantly faster.</p>
+        </div>
+        <div class="outcome-card">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>Improved Data Governance</h4>
+          <p>Clear ownership, consistent definitions, and auditable data flows build the trust leadership needs to act confidently on data.</p>
+        </div>
+        <div class="outcome-card">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <h4>Better Decision-Making</h4>
+          <p>Unified dashboards and analytics platforms replace gut feel with evidence — enabling teams to prioritise the right actions at the right time.</p>
+        </div>
+        <div class="outcome-card">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <h4>Reduced Operational Waste</h4>
+          <p>Process mapping and optimisation reveal hidden inefficiencies — freeing up resource, reducing errors, and improving throughput across the organisation.</p>
+        </div>
+        <div class="outcome-card">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h4>Aligned Stakeholders</h4>
+          <p>Structured business analysis and clear communication artefacts ensure that technical teams and business leaders share the same understanding and direction.</p>
+        </div>
+        <div class="outcome-card">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <h4>Scalable Analytics Capability</h4>
+          <p>From initial BI deployment to advanced AI models, organisations gain the infrastructure and skills to grow their analytics maturity over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIAL PLACEHOLDER ══ -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Client Perspectives</span>
+        <h2>What Our Clients Say</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card" style="background:var(--grey-100);border:none">
+          <div style="color:var(--teal);font-size:2rem;margin-bottom:0.75rem;font-family:Georgia,serif">"</div>
+          <p style="font-style:italic;color:var(--grey-600);margin-bottom:1.25rem;font-size:0.95rem"><em>[Testimonial placeholder — to be replaced with verified client quote]</em></p>
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <div style="width:40px;height:40px;background:var(--grey-200);border-radius:50%"></div>
+            <div>
+              <div style="font-weight:600;font-size:0.88rem;font-family:var(--font-display)">[Client Name]</div>
+              <div style="font-size:0.8rem;color:var(--grey-400)">[Title, Company]</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="background:var(--grey-100);border:none">
+          <div style="color:var(--teal);font-size:2rem;margin-bottom:0.75rem;font-family:Georgia,serif">"</div>
+          <p style="font-style:italic;color:var(--grey-600);margin-bottom:1.25rem;font-size:0.95rem"><em>[Testimonial placeholder — to be replaced with verified client quote]</em></p>
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <div style="width:40px;height:40px;background:var(--grey-200);border-radius:50%"></div>
+            <div>
+              <div style="font-weight:600;font-size:0.88rem;font-family:var(--font-display)">[Client Name]</div>
+              <div style="font-size:0.8rem;color:var(--grey-400)">[Title, Company]</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="background:var(--grey-100);border:none">
+          <div style="color:var(--teal);font-size:2rem;margin-bottom:0.75rem;font-family:Georgia,serif">"</div>
+          <p style="font-style:italic;color:var(--grey-600);margin-bottom:1.25rem;font-size:0.95rem"><em>[Testimonial placeholder — to be replaced with verified client quote]</em></p>
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <div style="width:40px;height:40px;background:var(--grey-200);border-radius:50%"></div>
+            <div>
+              <div style="font-weight:600;font-size:0.88rem;font-family:var(--font-display)">[Client Name]</div>
+              <div style="font-size:0.8rem;color:var(--grey-400)">[Title, Company]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA ══ -->
+  <div class="cta-banner">
+    <div class="dot-grid"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <h2>Ready to Navigate Your Data?</h2>
+      <p>Let's have a conversation about your challenges and how Datanautics can help.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary" style="background:var(--white);color:var(--teal-dark);border-color:var(--white)">Book a Discovery Call</a>
+        <a href="contact.html#consultation" class="btn btn-outline-light">Request a Consultation</a>
+      </div>
+      <div class="cta-contact-row">
+        <div class="cta-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:insights@datanautics.co.za">insights@datanautics.co.za</a>
+        </div>
+        <div class="cta-contact-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.8 19.79 19.79 0 0 1 1.62 5.22 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.13 1 .38 1.98.74 2.91a2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6 6l.97-1a2 2 0 0 1 2.11-.45c.93.36 1.91.61 2.91.74A2 2 0 0 1 22 17z"/></svg>
+          <a href="tel:0786996058">078 699 6058</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="nav.js"></script>
+</body>
+</html>

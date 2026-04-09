@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industries | Datanautics Consulting — Healthcare, Financial Services, Retail &amp; More</title>
+  <meta name="description" content="Datanautics serves healthcare, financial services, retail, hospitality, insurance, and public sector organisations across South Africa with tailored data strategy and analytics consulting." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .ind-subnav { background: var(--white); border-bottom: 1px solid var(--grey-200); position: sticky; top: 70px; z-index: 99; overflow-x: auto; }
+    .ind-subnav-inner { display: flex; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .ind-subnav-inner a { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; color: var(--grey-600); padding: 0.9rem 1rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: 0.18s; }
+    .ind-subnav-inner a:hover { color: var(--navy); border-color: var(--teal); }
+
+    .ind-section { padding: 5rem 0; border-bottom: 1px solid var(--grey-200); }
+    .ind-section:last-of-type { border-bottom: none; }
+    .ind-layout { display: grid; grid-template-columns: 260px 1fr; gap: 5rem; align-items: start; }
+    .ind-sidebar { position: sticky; top: 120px; }
+    .ind-icon { width: 60px; height: 60px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 1.5rem; }
+
+    .challenge-card { background: var(--grey-100); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .challenge-card h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-400); font-family: var(--font-display); margin-bottom: 1rem; }
+    .challenge-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .challenge-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; }
+    .challenge-list li::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+
+    .use-case { background: var(--white); border: 1px solid var(--grey-200); border-radius: var(--radius); padding: 1.5rem; }
+    .use-case-tag { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .use-case h4 { margin-bottom: 0.5rem; }
+    .use-case p { font-size: 0.9rem; color: var(--grey-600); }
+
+    .ind-services-used { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ind-service-link { display: inline-block; background: var(--teal-glow); border: 1px solid rgba(0,194,168,0.2); color: var(--teal-dark); font-size: 0.8rem; font-family: var(--font-display); font-weight: 600; padding: 0.35rem 0.85rem; border-radius: 100px; }
+
+    .alt-bg { background: var(--grey-100); }
+
+    @media (max-width: 860px) { .ind-layout { grid-template-columns: 1fr; gap: 2rem; } .ind-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <span class="label">Industries</span>
+        <h1>We Know Your <span class="text-teal">Sector</span></h1>
+        <p class="lead" style="color:rgba(255,255,255,0.7);margin-top:1rem">Every industry has its own data challenges, regulatory context, and competitive dynamics. We bring sector-specific understanding to every engagement.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ind-subnav">
+    <div class="ind-subnav-inner">
+      <a href="#healthcare">Healthcare</a>
+      <a href="#financial">Financial Services</a>
+      <a href="#retail">Retail</a>
+      <a href="#hospitality">Hospitality</a>
+      <a href="#insurance">Insurance</a>
+      <a href="#public-sector">Public Sector</a>
+    </div>
+  </div>
+
+  <!-- ══ HEALTHCARE ══ -->
+  <div id="healthcare" class="ind-section">
+    <div class="container">
+      <div class="ind-layout">
+        <div class="ind-sidebar">
+          <div class="ind-icon" style="background:rgba(0,194,168,0.12)">
+            <svg width="28" height="28" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="label">Industry 01</span>
+          <h2>Healthcare</h2>
+          <p style="color:var(--grey-600);margin-top:0.75rem;font-size:0.95rem">Supporting healthcare providers, administrators, and payers with data solutions that improve patient outcomes, operational efficiency, and compliance readiness.</p>
+          <div style="margin-top:1.5rem">
+            <div style="font-size:0.72rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-400);margin-bottom:0.75rem">Relevant Services</div>
+            <div class="ind-services-used">
+              <a href="services.html#bi-reporting" class="ind-service-link">BI Dashboards</a>
+              <a href="services.html#data-strategy" class="ind-service-link">Data Governance</a>
+              <a href="services.html#ai-analytics" class="ind-service-link">AI &amp; Analytics</a>
+              <a href="services.html#business-analysis" class="ind-service-link">Process Optimisation</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="challenge-card">
+            <h4>Common Data &amp; Operations Challenges</h4>
+            <ul class="challenge-list">
+              <li>Patient data fragmented across clinical and administrative systems</li>
+              <li>Manual reporting making it hard to monitor quality indicators in real time</li>
+              <li>Compliance with POPIA and health data privacy regulations</li>
+              <li>Operational inefficiencies across admissions, billing, and clinical pathways</li>
+              <li>Limited visibility into bed utilisation, patient flow, and resource allocation</li>
+              <li>Difficulty identifying at-risk patient populations for proactive intervention</li>
+            </ul>
+          </div>
+          <div class="grid-2">
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 01</div>
+              <h4>Operational Performance Dashboards</h4>
+              <p>A mid-sized private healthcare provider needed real-time visibility into bed occupancy, theatre utilisation, and patient wait times. We designed an integrated BI dashboard pulling from multiple source systems — enabling management to monitor performance and respond proactively.</p>
+            </div>
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 02</div>
+              <h4>Patient Data Governance Framework</h4>
+              <p>A healthcare group managing multiple facilities lacked consistent data definitions and ownership. We developed a governance framework covering patient master data, clinical definitions, and access controls — improving compliance confidence and data quality across the organisation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FINANCIAL SERVICES ══ -->
+  <div id="financial" class="ind-section alt-bg">
+    <div class="container">
+      <div class="ind-layout">
+        <div class="ind-sidebar">
+          <div class="ind-icon" style="background:rgba(0,194,168,0.12)">
+            <svg width="28" height="28" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="label">Industry 02</span>
+          <h2>Financial Services</h2>
+          <p style="color:var(--grey-600);margin-top:0.75rem;font-size:0.95rem">Helping banks, asset managers, and fintech firms turn data complexity into competitive intelligence — with a strong focus on governance, risk, and regulatory compliance.</p>
+          <div style="margin-top:1.5rem">
+            <div style="font-size:0.72rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-400);margin-bottom:0.75rem">Relevant Services</div>
+            <div class="ind-services-used">
+              <a href="services.html#data-strategy" class="ind-service-link">Data Strategy</a>
+              <a href="services.html#warehousing" class="ind-service-link">Data Engineering</a>
+              <a href="services.html#ai-analytics" class="ind-service-link">AI &amp; Analytics</a>
+              <a href="services.html#bi-reporting" class="ind-service-link">BI &amp; Dashboards</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="challenge-card">
+            <h4>Common Data &amp; Operations Challenges</h4>
+            <ul class="challenge-list">
+              <li>Regulatory reporting requirements consuming excessive analyst time</li>
+              <li>Risk and compliance data housed in siloed, incompatible systems</li>
+              <li>Difficulty building a single customer view across product lines</li>
+              <li>Slow credit and risk decision-making due to poor data access</li>
+              <li>Limited predictive capability for credit risk and churn modelling</li>
+              <li>Data lineage and audit trail requirements for regulatory submissions</li>
+            </ul>
+          </div>
+          <div class="grid-2">
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 01</div>
+              <h4>Regulatory Reporting Automation</h4>
+              <p>A financial institution's compliance team spent days each month preparing regulatory reports manually. We automated the data pipeline and reporting layer — dramatically reducing preparation time and improving accuracy and auditability of submissions.</p>
+            </div>
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 02</div>
+              <h4>Single Customer View Data Model</h4>
+              <p>A diversified financial services group needed a unified customer view to support cross-selling and risk management. We designed and implemented a customer master data model integrating retail banking, insurance, and investment product data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RETAIL ══ -->
+  <div id="retail" class="ind-section">
+    <div class="container">
+      <div class="ind-layout">
+        <div class="ind-sidebar">
+          <div class="ind-icon" style="background:rgba(0,194,168,0.12)">
+            <svg width="28" height="28" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <span class="label">Industry 03</span>
+          <h2>Retail</h2>
+          <p style="color:var(--grey-600);margin-top:0.75rem;font-size:0.95rem">Helping retailers unlock the value in their transactional and customer data — driving smarter merchandising, better customer experience, and more efficient operations.</p>
+          <div style="margin-top:1.5rem">
+            <div style="font-size:0.72rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-400);margin-bottom:0.75rem">Relevant Services</div>
+            <div class="ind-services-used">
+              <a href="services.html#ai-analytics" class="ind-service-link">AI &amp; Analytics</a>
+              <a href="services.html#bi-reporting" class="ind-service-link">BI Dashboards</a>
+              <a href="services.html#business-analysis" class="ind-service-link">Process Optimisation</a>
+              <a href="services.html#business-consulting" class="ind-service-link">Business Consulting</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="challenge-card">
+            <h4>Common Data &amp; Operations Challenges</h4>
+            <ul class="challenge-list">
+              <li>Inventory management driven by intuition rather than demand data</li>
+              <li>POS and e-commerce data not integrated for a unified sales view</li>
+              <li>Customer loyalty data underutilised for personalisation</li>
+              <li>Promotional effectiveness difficult to measure consistently</li>
+              <li>Supply chain visibility limited across suppliers and distribution</li>
+              <li>Margin analysis complicated by multi-channel pricing complexity</li>
+            </ul>
+          </div>
+          <div class="grid-2">
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 01</div>
+              <h4>Sales &amp; Inventory Analytics Platform</h4>
+              <p>A multi-branch retailer was managing inventory decisions through spreadsheets across locations. We built a centralised analytics platform connecting POS data, stock levels, and supplier data — enabling automated reorder triggers and improved stock availability.</p>
+            </div>
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 02</div>
+              <h4>Customer Segmentation for Targeted Campaigns</h4>
+              <p>A retail brand with a large loyalty database was sending generic communications to all customers. We built a customer segmentation model based on purchasing behaviour and lifetime value — enabling targeted campaigns that improved relevance and response rates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HOSPITALITY ══ -->
+  <div id="hospitality" class="ind-section alt-bg">
+    <div class="container">
+      <div class="ind-layout">
+        <div class="ind-sidebar">
+          <div class="ind-icon" style="background:rgba(0,194,168,0.12)">
+            <svg width="28" height="28" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="label">Industry 04</span>
+          <h2>Hospitality</h2>
+          <p style="color:var(--grey-600);margin-top:0.75rem;font-size:0.95rem">Supporting hotels, restaurant groups, and travel businesses to use data for revenue optimisation, operational efficiency, and enhanced guest experiences.</p>
+          <div style="margin-top:1.5rem">
+            <div style="font-size:0.72rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-400);margin-bottom:0.75rem">Relevant Services</div>
+            <div class="ind-services-used">
+              <a href="services.html#bi-reporting" class="ind-service-link">BI Dashboards</a>
+              <a href="services.html#ai-analytics" class="ind-service-link">AI &amp; Analytics</a>
+              <a href="services.html#business-consulting" class="ind-service-link">Business Consulting</a>
+              <a href="services.html#business-analysis" class="ind-service-link">Process Optimisation</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="challenge-card">
+            <h4>Common Data &amp; Operations Challenges</h4>
+            <ul class="challenge-list">
+              <li>Revenue management relying on outdated or manual pricing models</li>
+              <li>Guest data fragmented across PMS, CRM, and F&amp;B systems</li>
+              <li>Occupancy and ADR trends not visible in real time</li>
+              <li>Limited understanding of guest segmentation and lifetime value</li>
+              <li>Operational costs difficult to track across multiple departments</li>
+              <li>No visibility into review sentiment and its impact on bookings</li>
+            </ul>
+          </div>
+          <div class="grid-2">
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 01</div>
+              <h4>Revenue &amp; Occupancy Performance Dashboard</h4>
+              <p>A hotel group operating across multiple properties needed consolidated visibility into revenue per available room, occupancy rates, and booking channel performance. We designed a unified BI dashboard that enabled group-level and property-level analysis in real time.</p>
+            </div>
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 02</div>
+              <h4>Guest Segmentation &amp; Loyalty Insights</h4>
+              <p>A boutique hotel group wanted to better understand their most valuable guest segments to refine their marketing and loyalty strategy. We analysed booking, spend, and stay data to build a guest segmentation model that informed targeted communications and experience improvements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ INSURANCE ══ -->
+  <div id="insurance" class="ind-section">
+    <div class="container">
+      <div class="ind-layout">
+        <div class="ind-sidebar">
+          <div class="ind-icon" style="background:rgba(0,194,168,0.12)">
+            <svg width="28" height="28" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="label">Industry 05</span>
+          <h2>Insurance</h2>
+          <p style="color:var(--grey-600);margin-top:0.75rem;font-size:0.95rem">Helping short-term and life insurers improve risk modelling, fraud detection, claims efficiency, and customer analytics through better use of data.</p>
+          <div style="margin-top:1.5rem">
+            <div style="font-size:0.72rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-400);margin-bottom:0.75rem">Relevant Services</div>
+            <div class="ind-services-used">
+              <a href="services.html#ai-analytics" class="ind-service-link">AI &amp; Analytics</a>
+              <a href="services.html#data-strategy" class="ind-service-link">Data Governance</a>
+              <a href="services.html#warehousing" class="ind-service-link">Data Engineering</a>
+              <a href="services.html#bi-reporting" class="ind-service-link">BI Reporting</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="challenge-card">
+            <h4>Common Data &amp; Operations Challenges</h4>
+            <ul class="challenge-list">
+              <li>Claims processing hindered by manual workflows and poor data quality</li>
+              <li>Risk pricing models not incorporating available external data sources</li>
+              <li>Fraud detection relying on rules-based systems with high false positive rates</li>
+              <li>Policy, claims, and customer data siloed across legacy systems</li>
+              <li>Regulatory reporting (IFRS 17, Solvency II) requiring significant manual effort</li>
+              <li>Customer churn early warning signals not being identified or acted on</li>
+            </ul>
+          </div>
+          <div class="grid-2">
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 01</div>
+              <h4>Claims Analytics &amp; Processing Visibility</h4>
+              <p>An insurer with high claims volumes had limited visibility into bottlenecks, processing times, and outcomes across claim types. We built a claims analytics capability giving operations management real-time insight into pipeline status, SLA adherence, and cost per claim trends.</p>
+            </div>
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 02</div>
+              <h4>Policy &amp; Customer Data Consolidation</h4>
+              <p>A life insurer managing data across multiple legacy policy administration systems needed a consolidated data model to support reporting and customer management. We designed and implemented a central data warehouse integrating policy, claim, and customer data across all product lines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PUBLIC SECTOR ══ -->
+  <div id="public-sector" class="ind-section alt-bg">
+    <div class="container">
+      <div class="ind-layout">
+        <div class="ind-sidebar">
+          <div class="ind-icon" style="background:rgba(0,194,168,0.12)">
+            <svg width="28" height="28" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+          </div>
+          <span class="label">Industry 06</span>
+          <h2>Public Sector</h2>
+          <p style="color:var(--grey-600);margin-top:0.75rem;font-size:0.95rem">Working with government departments, municipalities, and public entities to improve the use of data for service delivery, accountability, and evidence-based decision-making.</p>
+          <div style="margin-top:1.5rem">
+            <div style="font-size:0.72rem;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-400);margin-bottom:0.75rem">Relevant Services</div>
+            <div class="ind-services-used">
+              <a href="services.html#data-strategy" class="ind-service-link">Data Strategy</a>
+              <a href="services.html#business-consulting" class="ind-service-link">Business Consulting</a>
+              <a href="services.html#bi-reporting" class="ind-service-link">BI &amp; Reporting</a>
+              <a href="services.html#project-mgmt" class="ind-service-link">Project Management</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="challenge-card">
+            <h4>Common Data &amp; Operations Challenges</h4>
+            <ul class="challenge-list">
+              <li>Service delivery reporting relying on disconnected spreadsheets and manual compilation</li>
+              <li>Limited data sharing between departments hindering integrated planning</li>
+              <li>Poor visibility into budget versus expenditure in real time</li>
+              <li>Skills and capacity constraints in analytics and data management</li>
+              <li>Compliance with POPIA and public sector data governance requirements</li>
+              <li>Difficulty measuring outcome and impact of programmes and interventions</li>
+            </ul>
+          </div>
+          <div class="grid-2">
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 01</div>
+              <h4>Service Delivery Monitoring Dashboard</h4>
+              <p>A public entity responsible for infrastructure delivery needed real-time visibility into project progress, budget consumption, and service delivery milestones across multiple programmes. We built a consolidated monitoring and evaluation dashboard enabling leadership to track performance and report to oversight bodies efficiently.</p>
+            </div>
+            <div class="use-case">
+              <div class="use-case-tag">Use Case 02</div>
+              <h4>Data Governance for a Government Department</h4>
+              <p>A national government department held large volumes of citizen and operational data but lacked a formal governance framework. We developed a fit-for-purpose data governance policy, ownership structure, and implementation roadmap — aligned to POPIA requirements and public sector standards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="bg-navy" style="text-align:center;padding:4rem 0">
+    <div class="container">
+      <span class="label">Your Industry</span>
+      <h2 style="color:var(--white);margin-bottom:1rem">Don't See Your Sector Listed?</h2>
+      <p style="color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2rem">We work across a broad range of industries. Reach out to discuss your specific context and how we can help.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
+        <a href="services.html" class="btn btn-outline-light">View Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="nav.js"></script>
+</body>
+</html>

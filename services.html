@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Datanautics Consulting — Data Strategy, BI, AI Analytics South Africa</title>
+  <meta name="description" content="Explore Datanautics' full range of services: Data Strategy & Governance, Data Warehousing & Engineering, AI & Advanced Analytics, BI Reporting, Project Management, Business Consulting, and Process Optimisation." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .service-section { padding: 5rem 0; border-bottom: 1px solid var(--grey-200); }
+    .service-section:last-of-type { border-bottom: none; }
+    .service-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+    .service-sidebar { position: sticky; top: 90px; }
+    .service-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--teal-glow); border: 1px solid rgba(0,194,168,0.25); color: var(--teal); font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.25rem; }
+    .service-sidebar h2 { margin-bottom: 1rem; }
+    .service-sidebar p.lead { margin-bottom: 1.5rem; }
+    .service-icon-large { width: 64px; height: 64px; background: var(--teal-glow); border-radius: 14px; display: grid; place-items: center; margin-bottom: 1.5rem; color: var(--teal); }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .detail-block { background: var(--grey-100); border-radius: var(--radius); padding: 1.5rem; }
+    .detail-block h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-400); font-family: var(--font-display); margin-bottom: 1rem; }
+    .detail-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .detail-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--text-body); }
+    .detail-list li::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+    .outcome-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); border: 1px solid var(--grey-200); border-radius: 100px; padding: 0.4rem 0.9rem; font-size: 0.82rem; font-weight: 500; color: var(--text-body); margin: 0.25rem; }
+    .outcome-pill svg { color: var(--teal); }
+    .outcomes-wrap { background: var(--navy); border-radius: var(--radius); padding: 1.5rem; margin-top: 0; }
+    .outcomes-wrap h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); font-family: var(--font-display); margin-bottom: 1rem; }
+    .outcome-pill-dark { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 0.4rem 0.9rem; font-size: 0.82rem; color: rgba(255,255,255,0.8); margin: 0.25rem; }
+    .alt-bg { background: var(--grey-100); }
+    @media (max-width: 900px) { .service-layout { grid-template-columns: 1fr; gap: 2.5rem; } .service-sidebar { position: static; } .detail-grid { grid-template-columns: 1fr; } }
+
+    /* service nav */
+    .service-subnav { background: var(--white); border-bottom: 1px solid var(--grey-200); position: sticky; top: 70px; z-index: 99; padding: 0; overflow-x: auto; }
+    .service-subnav-inner { display: flex; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .service-subnav-inner a { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; color: var(--grey-600); padding: 0.9rem 1rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.18s; }
+    .service-subnav-inner a:hover { color: var(--navy); border-color: var(--teal); }
+
+    /* tools section */
+    .tools-section { background: var(--navy-mid); padding: 4rem 0; }
+    .tool-chip { display: inline-block; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); font-size: 0.82rem; font-family: var(--font-display); font-weight: 500; padding: 0.4rem 1rem; border-radius: 6px; margin: 0.25rem; }
+    .tools-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 1rem; font-style: italic; }
+
+    /* additional capabilities */
+    .cap-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--grey-100); border: 1px solid var(--grey-200); border-radius: 100px; padding: 0.5rem 1.1rem; font-size: 0.88rem; color: var(--text-body); margin: 0.3rem; }
+    .cap-pill svg { color: var(--teal); }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <span class="label">Our Services</span>
+        <h1>Comprehensive <span class="text-teal">Data &amp; Business</span> Consulting</h1>
+        <p class="lead" style="color:rgba(255,255,255,0.7);margin-top:1rem">From building your data foundations to deploying advanced AI — we offer the full range of capabilities your organisation needs to compete on data.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE SUB NAV -->
+  <div class="service-subnav">
+    <div class="service-subnav-inner">
+      <a href="#data-strategy">Data Strategy</a>
+      <a href="#warehousing">Data Engineering</a>
+      <a href="#ai-analytics">AI &amp; Analytics</a>
+      <a href="#bi-reporting">BI &amp; Dashboards</a>
+      <a href="#project-mgmt">Project Mgmt</a>
+      <a href="#business-consulting">Business Consulting</a>
+      <a href="#business-analysis">Process Optimisation</a>
+    </div>
+  </div>
+
+  <!-- ══ 01 DATA STRATEGY ══ -->
+  <div id="data-strategy" class="service-section">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+          </div>
+          <span class="service-badge">Service 01</span>
+          <h2>Data Strategy &amp; Governance</h2>
+          <p class="lead">Treat data as the strategic asset it is. We help organisations define where they want to go with data — and build the frameworks to get there responsibly.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Heads of Data, CIOs, CDOs, and Strategy leaders who need a clear plan for data maturity and governance.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>No clear data ownership or accountability</li>
+                <li>Inconsistent definitions across teams</li>
+                <li>Data quality issues undermining trust</li>
+                <li>No roadmap for data maturity</li>
+                <li>Compliance and regulatory risk</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>Data maturity assessments</li>
+                <li>Data governance framework design</li>
+                <li>Policy and standards development</li>
+                <li>Data catalogue and lineage planning</li>
+                <li>Strategic data roadmap creation</li>
+                <li>Stakeholder alignment workshops</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Data governance framework document</li>
+                <li>Data strategy roadmap (12–36 months)</li>
+                <li>Data glossary and business definitions</li>
+                <li>Data ownership and stewardship model</li>
+                <li>Governance operating model</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">↑ Data trust and quality</span>
+                <span class="outcome-pill-dark">↑ Regulatory confidence</span>
+                <span class="outcome-pill-dark">↓ Duplicate definitions</span>
+                <span class="outcome-pill-dark">Clearer accountability</span>
+                <span class="outcome-pill-dark">Strategic alignment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 02 DATA WAREHOUSING ══ -->
+  <div id="warehousing" class="service-section alt-bg">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <span class="service-badge">Service 02</span>
+          <h2>Data Warehousing &amp; Engineering</h2>
+          <p class="lead">Build the reliable data infrastructure your analytics and reporting depend on. We design and implement scalable, well-structured data environments that your team can trust.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Engineering leads, data teams, and IT leaders looking to modernise data infrastructure or build a centralised data environment.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>Siloed data across multiple systems</li>
+                <li>Manual, fragile ETL processes</li>
+                <li>Slow and unreliable reporting pipelines</li>
+                <li>No single source of truth</li>
+                <li>Legacy infrastructure limiting growth</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>Data warehouse architecture and design</li>
+                <li>ETL/ELT pipeline development</li>
+                <li>Data lake and lakehouse implementation</li>
+                <li>Cloud data platform migration</li>
+                <li>Data integration across source systems</li>
+                <li>Data modelling (dimensional/relational)</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Data architecture blueprint</li>
+                <li>Deployed data warehouse / lakehouse</li>
+                <li>Automated data pipelines</li>
+                <li>Data model documentation</li>
+                <li>Monitoring and alerting setup</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">Single source of truth</span>
+                <span class="outcome-pill-dark">↓ Manual data effort</span>
+                <span class="outcome-pill-dark">↑ Reporting speed</span>
+                <span class="outcome-pill-dark">Scalable infrastructure</span>
+                <span class="outcome-pill-dark">↑ Data reliability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 03 AI & ANALYTICS ══ -->
+  <div id="ai-analytics" class="service-section">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <span class="service-badge">Service 03</span>
+          <h2>AI &amp; Advanced Analytics</h2>
+          <p class="lead">Go beyond descriptive reporting. We design and implement analytics solutions that help you predict, prescribe, and act — turning data into a genuine competitive advantage.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Analytics leaders and executives ready to invest in predictive capability, automation, and AI-augmented decision-making.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>Reactive decision-making — always looking backwards</li>
+                <li>Analyst time consumed by repetitive queries</li>
+                <li>No capability to model future scenarios</li>
+                <li>Unclear AI/ML use cases and ROI</li>
+                <li>Skills gaps in data science</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>Analytics maturity assessments</li>
+                <li>Predictive and forecasting models</li>
+                <li>Machine learning model development</li>
+                <li>Natural language and text analytics</li>
+                <li>AI use case identification and prioritisation</li>
+                <li>Model deployment and monitoring</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Analytics roadmap and use case register</li>
+                <li>Deployed predictive models</li>
+                <li>AI solution documentation</li>
+                <li>Model performance dashboards</li>
+                <li>Team enablement and knowledge transfer</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">↑ Forecast accuracy</span>
+                <span class="outcome-pill-dark">Proactive decisions</span>
+                <span class="outcome-pill-dark">↓ Analyst manual effort</span>
+                <span class="outcome-pill-dark">New revenue insights</span>
+                <span class="outcome-pill-dark">↑ Risk identification</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 04 BI REPORTING ══ -->
+  <div id="bi-reporting" class="service-section alt-bg">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <span class="service-badge">Service 04</span>
+          <h2>BI Reporting &amp; Dashboards</h2>
+          <p class="lead">Give your decision-makers the visibility they need. We design and build intuitive dashboards that surface the right metrics, at the right time, for the right audience.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Operations leaders, finance teams, and executives who need reliable, accessible insights without depending on a data team for every query.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>Executives lack timely access to key metrics</li>
+                <li>Reporting relies on manual spreadsheets</li>
+                <li>Inconsistent numbers across departments</li>
+                <li>Dashboards that exist but aren't used</li>
+                <li>Too many reports, not enough insight</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>Requirements and metrics definition workshops</li>
+                <li>Dashboard design and prototyping</li>
+                <li>BI tool development and deployment</li>
+                <li>Self-service reporting enablement</li>
+                <li>Report rationalisation and consolidation</li>
+                <li>User training and adoption support</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Executive and operational dashboards</li>
+                <li>KPI framework and metric definitions</li>
+                <li>Self-service BI environment</li>
+                <li>Report inventory and rationalisation plan</li>
+                <li>User guides and training materials</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">↑ Reporting speed</span>
+                <span class="outcome-pill-dark">↓ Manual reporting effort</span>
+                <span class="outcome-pill-dark">Consistent metrics</span>
+                <span class="outcome-pill-dark">↑ Dashboard adoption</span>
+                <span class="outcome-pill-dark">Faster decisions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 05 PROJECT MANAGEMENT ══ -->
+  <div id="project-mgmt" class="service-section">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <span class="service-badge">Service 05</span>
+          <h2>Project Management</h2>
+          <p class="lead">Data and technology projects are only valuable when they land. We provide structured, experienced project management to keep your initiatives on track, on budget, and aligned to business outcomes.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Organisations running complex data, analytics, or transformation programmes that need experienced delivery management.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>Projects overrunning budget and timeline</li>
+                <li>Scope creep and unclear requirements</li>
+                <li>Poor stakeholder communication</li>
+                <li>Delivery teams lacking direction</li>
+                <li>Benefits not being realised post-delivery</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>Project scoping and charter development</li>
+                <li>Agile and hybrid delivery management</li>
+                <li>Risk and issue tracking</li>
+                <li>Stakeholder communication and reporting</li>
+                <li>Resource and dependency management</li>
+                <li>Benefits realisation tracking</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Project plan and schedule</li>
+                <li>Status reports and stakeholder packs</li>
+                <li>Risk register and RAID log</li>
+                <li>Change control documentation</li>
+                <li>Project closure and lessons learned</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">On-time delivery</span>
+                <span class="outcome-pill-dark">↓ Scope creep</span>
+                <span class="outcome-pill-dark">Clear accountability</span>
+                <span class="outcome-pill-dark">↑ Stakeholder confidence</span>
+                <span class="outcome-pill-dark">Realised benefits</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 06 BUSINESS CONSULTING ══ -->
+  <div id="business-consulting" class="service-section alt-bg">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="service-badge">Service 06</span>
+          <h2>Business Consulting &amp; Advisory</h2>
+          <p class="lead">Strategic clarity for complex business challenges. We work alongside leadership to identify opportunities, challenge assumptions, and build practical plans for improved performance.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Executives and strategy leaders seeking an external perspective on performance, growth, or transformation priorities.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>Unclear strategic direction or priorities</li>
+                <li>Organisational performance plateauing</li>
+                <li>New markets, products, or models to evaluate</li>
+                <li>Competitive pressure requiring a response</li>
+                <li>Need for an objective external perspective</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>Business diagnostics and performance review</li>
+                <li>Strategic planning and facilitation</li>
+                <li>Operating model design</li>
+                <li>Pricing strategy and revenue optimisation</li>
+                <li>Market and competitive analysis</li>
+                <li>Transformation programme support</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Strategic review and recommendations report</li>
+                <li>Strategic plan and execution roadmap</li>
+                <li>Business case development</li>
+                <li>Operating model documentation</li>
+                <li>Board or executive presentation packs</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">Clearer strategy</span>
+                <span class="outcome-pill-dark">↑ Operational performance</span>
+                <span class="outcome-pill-dark">Prioritised initiatives</span>
+                <span class="outcome-pill-dark">↑ Leadership alignment</span>
+                <span class="outcome-pill-dark">Actionable roadmap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 07 BUSINESS ANALYSIS ══ -->
+  <div id="business-analysis" class="service-section">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <div class="service-icon-large">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <span class="service-badge">Service 07</span>
+          <h2>Business Analysis &amp; Process Optimisation</h2>
+          <p class="lead">Understand how your organisation really works — and identify where it can work better. We combine rigorous business analysis with process improvement to deliver tangible efficiency gains.</p>
+          <div style="margin-top:1.5rem;padding:1.25rem;background:var(--teal-glow);border-radius:var(--radius);border-left:3px solid var(--teal)">
+            <div style="font-size:0.78rem;font-family:var(--font-display);font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Best For</div>
+            <p style="font-size:0.88rem;color:var(--grey-600)">Operations managers, heads of transformation, and business leaders who know something isn't working but need clarity on where and why.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Challenges We Solve</h4>
+              <ul class="detail-list">
+                <li>Processes that are slow, error-prone, or manual</li>
+                <li>System requirements poorly captured</li>
+                <li>High operational cost with unclear root cause</li>
+                <li>Bottlenecks slowing service delivery</li>
+                <li>Change projects failing due to poor analysis</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>What We Do</h4>
+              <ul class="detail-list">
+                <li>As-is process mapping and documentation</li>
+                <li>Gap and root cause analysis</li>
+                <li>To-be process design</li>
+                <li>Business requirements elicitation</li>
+                <li>System and workflow optimisation</li>
+                <li>Automation opportunity identification</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Typical Deliverables</h4>
+              <ul class="detail-list">
+                <li>Process maps (as-is and to-be)</li>
+                <li>Business requirements specification</li>
+                <li>Gap analysis and improvement register</li>
+                <li>Optimisation recommendations report</li>
+                <li>Implementation roadmap</li>
+              </ul>
+            </div>
+            <div class="outcomes-wrap">
+              <h4>Outcomes to Expect</h4>
+              <div>
+                <span class="outcome-pill-dark">↓ Process waste</span>
+                <span class="outcome-pill-dark">↑ Throughput and speed</span>
+                <span class="outcome-pill-dark">Clearer requirements</span>
+                <span class="outcome-pill-dark">↓ Error rates</span>
+                <span class="outcome-pill-dark">Automation readiness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TOOLS & PLATFORMS ══ -->
+  <div class="tools-section">
+    <div class="container">
+      <div style="max-width:720px">
+        <span class="label">Tools &amp; Platforms</span>
+        <h2 style="color:var(--white);margin-bottom:1rem">We Work With Modern, Enterprise-Grade Technology</h2>
+        <p style="color:rgba(255,255,255,0.65);margin-bottom:2rem">We are platform-agnostic and work across the major modern data, BI, and cloud environments. Our recommendations are always based on what's right for your context — not a vendor preference.</p>
+        <div>
+          <div style="font-size:0.72rem;font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:0.75rem">Cloud &amp; Data Platforms</div>
+          <div>
+            <span class="tool-chip">Cloud Data Warehouses</span>
+            <span class="tool-chip">Data Lakehouse Platforms</span>
+            <span class="tool-chip">Cloud Infrastructure (AWS / Azure / GCP)</span>
+            <span class="tool-chip">Modern ETL / ELT Tools</span>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem">
+          <div style="font-size:0.72rem;font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:0.75rem">BI &amp; Visualisation</div>
+          <div>
+            <span class="tool-chip">Power BI</span>
+            <span class="tool-chip">Tableau</span>
+            <span class="tool-chip">Looker / Looker Studio</span>
+            <span class="tool-chip">SQL-based reporting tools</span>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem">
+          <div style="font-size:0.72rem;font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:0.75rem">Analytics &amp; AI</div>
+          <div>
+            <span class="tool-chip">Python / R</span>
+            <span class="tool-chip">Machine Learning frameworks</span>
+            <span class="tool-chip">Statistical modelling tools</span>
+            <span class="tool-chip">Data science platforms</span>
+          </div>
+        </div>
+        <p class="tools-note">* Tool mentions are for illustrative purposes only. Datanautics is not a registered partner of any of the above vendors.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ADDITIONAL CAPABILITIES ══ -->
+  <section class="bg-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Additional Capabilities</span>
+        <h2>Beyond Our Core Services</h2>
+        <p class="lead" style="margin-top:1rem">We offer additional consulting and advisory capabilities that complement our core services and support broader organisational needs.</p>
+      </div>
+      <div style="text-align:center">
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> IT Consulting</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Data Recovery</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Healthcare Consulting</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Management Consulting</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Pricing Strategy</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Search Engine Optimisation (SEO)</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Data Reporting</span>
+        <span class="cap-pill"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Strategic Planning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy" style="text-align:center;padding:4rem 0">
+    <div class="container">
+      <span class="label">Ready to Start?</span>
+      <h2 style="color:var(--white);margin-bottom:1rem">Not Sure Which Service You Need?</h2>
+      <p style="color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2rem">Book a no-obligation discovery call. We'll listen to your challenges and recommend the right approach for your organisation.</p>
+      <a href="contact.html" class="btn btn-primary">Book a Discovery Call →</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="nav.js"></script>
+</body>
+</html>
